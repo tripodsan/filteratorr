@@ -1,4 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %><%
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><%--
+  ~ Licensed to the Apache Software Foundation (ASF) under one or more
+  ~ contributor license agreements.  See the NOTICE file distributed with
+  ~ this work for additional information regarding copyright ownership.
+  ~ The ASF licenses this file to You under the Apache License, Version 2.0
+  ~ (the "License"); you may not use this file except in compliance with
+  ~ the License.  You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  --%><%
 %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %><%
 %><%@ page import="
     java.io.ByteArrayInputStream,
@@ -26,17 +42,17 @@
         private final String path;
 
         public Example(String name, String path, String filter) {
-            this.name = StringEscapeUtils.escapeHtml4(name);
-            this.filter = StringEscapeUtils.escapeHtml4(filter);
-            this.path = StringEscapeUtils.escapeHtml4(path);
+            this.name = name;
+            this.filter = filter;
+            this.path = path;
         }
 
         private void print(Writer out) {
             PrintWriter w = new PrintWriter(out);
             w.printf("<form class=\"example\" method=\"POST\">");
-            w.printf("<input type=\"hidden\" name=\"filter\" value=\"%s\">", filter);
-            w.printf("<input type=\"hidden\" name=\"path\" value=\"%s\">", path);
-            w.printf("<input type=\"submit\" name=\"submit\" value=\"%s\">", name);
+            w.printf("<input type=\"hidden\" name=\"filter\" value=\"%s\">", StringEscapeUtils.escapeHtml4(filter));
+            w.printf("<input type=\"hidden\" name=\"path\" value=\"%s\">", StringEscapeUtils.escapeHtml4(path));
+            w.printf("<input type=\"submit\" name=\"submit\" value=\"%s\">", StringEscapeUtils.escapeHtml4(name));
             w.printf("</form>");
         }
     }
@@ -94,15 +110,15 @@
 <article class="markdown-body">
 
     <h2>Filteratorr&trade;</h2>
-    Validate and test <a href="jackrabbit.apache.org/filevault/">filevault</a> filter. Enter the filter and path below or, try out some
+    Validate and test <a href="https://jackrabbit.apache.org/filevault/filter.html">filevault filter</a>. Enter the filter and path below or, try out some
     examples: <br><% for (Example e: EXAMPLES) { e.print(out);}%>
 
     <h2>Filter</h2>
     <form method="POST">
-        <textarea name="filter" rows="20"><%= filterStr %></textarea>
+        <textarea name="filter" rows="20"><%= StringEscapeUtils.escapeHtml4(filterStr) %></textarea>
         <br>
         <b>Test path</b><br>
-        <input class="input-path" name="path" value="<%= path %>">
+        <input class="input-path" name="path" value="<%= StringEscapeUtils.escapeHtml4(path) %>">
         <br>
         <input type="submit" value="Validate">
     </form>

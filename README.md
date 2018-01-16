@@ -1,3 +1,20 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
 filteratorr
 ===========
 
@@ -8,12 +25,11 @@ In action: [filteratorr.appspot.com](http://filteratorr.appspot.com)
 Develop
 -------
 
-The actual web app code is in [filteratorr-war/src/main/webapp](filteratorr-war/src/main/webapp/).
+The actual web app code is in [src/main/webapp](src/main/webapp/).
 
 ### Run a local test server
 
-    cd filteratorr-war
-    mvn appengine:devserver
+    mvn appengine:run
     
 Then go to <http://localhost:8080>
     
@@ -21,9 +37,9 @@ Kill server with `CTRL+C`. Must be restarted every time a file has changed.
 
 ### Deploy to Google App engine
 
-    cd filteratorr-war
-    mvn appengine:update
+    mvn appengine:deploy
     
-If that fails with "Either the access code is invalid or the OAuth token is revoked.Details: invalid_grant", run
+    
+### Thanks
 
-    rm ~/.appcfg_oauth2_tokens_java
+Special thanks to @alexkli. The project layout and build files were copied from his [versionatorr](https://github.com/alexkli/versionatorr).
