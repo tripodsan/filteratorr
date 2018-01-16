@@ -138,10 +138,8 @@
                 <div class="filter-result">
                     <b>Filter</b>: <span class="valid">valid</span><br>
                     <b>Path</b>: <code><%= path %></code><br>
-                    <b>Covered</b>: <% printColored(out, filter.covers(path), "true", "false"); %><br>
-                    <b>Contains</b>: <% printColored(out, filter.contains(path), "true", "false"); %><br>
+                    <b>Matches</b>: <% printColored(out, filter.contains(path), "path is inclued", "path is excluded"); %><br>
                     <b>Import Mode</b>: <%= filter.getImportMode(path).name() %><br>
-
                 </div>
                 <%
             } else {

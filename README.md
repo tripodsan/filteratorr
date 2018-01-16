@@ -20,7 +20,7 @@ filteratorr
 
 Web app to validate and test vault filters.
 
-In action: [filteratorr.appspot.com](http://filteratorr.appspot.com)
+In action: [filteratorr.appspot.com](https://filteratorr.appspot.com)
 
 Develop
 -------
