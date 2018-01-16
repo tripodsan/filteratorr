@@ -42,4 +42,4 @@ Kill server with `CTRL+C`. Must be restarted every time a file has changed.
     
 ### Thanks
 
-Special thanks to @alexkli. The project layout and build files were copied from his [versionatorr](https://github.com/alexkli/versionatorr).
+Special thanks to [@alexkli](https://github.com/alexkli). The project layout and build files were copied from his [versionatorr](https://github.com/alexkli/versionatorr).
